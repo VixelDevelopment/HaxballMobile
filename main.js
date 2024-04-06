@@ -15,6 +15,7 @@ const ADBLOCK = true;
 const ROOM_SEARCH = true;
 const CLIPBOARD_ROOM = true;
 const STORE_BUTTON = true;
+const ROOM_ADMIN_SETTINGS = true;
 const CUSTOM_CSS = true;
 const CUSTOM_LOGO = { "url": "https://seeklogo.com/images/A/argentine-football-association-afa-2018-logo-BDF55D25F3-seeklogo.com.png", "height": "100px" };
 const CUSTOM_FONT = { "name": "Inter", "type": "sans-serif", "url": "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" };
@@ -24,6 +25,8 @@ const observer = new MutationObserver(onDOMChange);
 const observerConfig = { childList: true, subtree: true };
 observer.observe(body, observerConfig);
 
+
+
 function onDOMChange(mutationsList, observer) {
     mutationsList.forEach(mutation => {
         if (mutation.type === 'childList') {
@@ -32,38 +35,22 @@ function onDOMChange(mutationsList, observer) {
                     if (!getByDataHook('search')) createSearchbar();
                     if (!getByDataHook('url-room')) createURLButton();
                     filterRooms(getByDataHook("search").value)
-                } else if (body.querySelector('.room-view')) {
+                    showControls(false)
+                } else if (body.querySelector('.room-view') || body.querySelector('.showing-room-view')) {
                     if (!getByDataHook('store')) createStoreButton();
-
                     if (body.querySelector('.room-view .admin')) {
-                        body.querySelectorAll('.player-list-item').forEach(function(element) {
-                            let expired
-                            let doubleTouch = function(e) {
-                                if (e.touches.length === 1) {
-                                    if (!expired) {
-                                        expired = e.timeStamp + 400
-                                    } else if (e.timeStamp <= expired) {
-                                        e.preventDefault()
-                                        openPlayerSettings()
-                                        expired = null
-                                    } else {
-                                        expired = e.timeStamp + 400
-                                    }
-                                }
-                            }
-
-                            function openPlayerSettings() {
-                                var event = new MouseEvent("contextmenu", { bubbles: true, cancelable: true, view: window, button: 2 });
-                                element.dispatchEvent(event);
-                            }
-                            element.addEventListener('touchstart', doubleTouch)
-                        });
+                        body.querySelectorAll('.player-list-item').forEach(roomAdminSettings);
                     }
+                    showControls(false)
+                } else if (body.querySelector('.game-view') && !body.querySelector('.showing-room-view')) {
+                    showControls(true)
                 }
             }
         }
     });
 }
+
+//<div class="inputrow"><div>Joystick</div><div>Enabled<i class="icon-ok"></i></div></div>
 
 if (typeof ADBLOCK !== 'undefined') {
     document.querySelector('.rightbar').remove();
@@ -84,156 +71,7 @@ function createURLButton() {
 
 //Set a custom stylesheet
 if (typeof CUSTOM_CSS !== 'undefined') {
-    e = document.createElement("style");
-    e.innerHTML = `/* HaxBall Mobile custom stylesheet */
-
-body {
-    background: #1a2125
-}
-
-[data-hook=leave-btn] {
-    background: #c13535 !important;
-}
-
-[data-hook="tvideo-lowlatency"],
-[data-hook="tvideo-teamcol"],
-[data-hook="tvideo-showindicators"],
-[data-hook="tvideo-showavatars"],
-div:has(>[data-hook="fps"]),
-div:has(>[data-hook="chatopacity-range"]),
-div:has(>[data-hook="chatfocusheight-range"]),
-div:has(>[data-hook="chatbgmode"]),
-.roomlist-view>.dialog>.splitter>.buttons>.file-btn,
-[data-hook="rec-btn"],
-.sound-button-container {
-    display: none !important;
-}
-
-.game-view>[data-hook=popups] {
-    background-color: #1a212585 !important;
-}
-
-h1 {
-    border-bottom-color: #fec45b !important;
-}
-
-.game-view>.top-section {
-    margin-top: 0;
-}
-
-.room-view {
-    margin-top: 0;
-    margin-bottom: 0;
-    height: 100%;
-}
-
-.room-view>.container {
-    margin-top: auto !important;
-    margin-bottom: 0;
-}
-
-.room-view>.container>.header-btns {
-    bottom: 0;
-    top: auto;
-    display: flex;
-    flex-flow: row-reverse;
-    left: 10px;
-    right: auto;
-}
-
-[data-hook="leave-btn"] {
-    background-color: #dd3333;
-    margin-right: 6px;
-}
-
-[data-hook="stadium-pick"] {
-    position: fixed !important;
-    background: transparent !important;
-    color: transparent !important;
-    width: 300px;
-    height: 20px;
-}
-
-[data-hook="stadium-name"] {
-    text-decoration: underline;
-}
-
-.room-view>.container>.controls {
-    display: flex;
-    align-self: center;
-    position: absolute;
-    bottom: 0;
-    right: 10px;
-    top: auto;
-    margin-bottom: 15px !important;
-    z-index: 1;
-}
-
-.settings-view {
-    width: 100%;
-    height: 100%;
-    max-height: unset;
-    border-radius: 0;
-}
-
-.settings-view .tabcontents {
-    width: 100%;
-    text-align: -webkit-center;
-}
-
-.settings-view .section.selected {
-    display: flex;
-    width: max-content;
-}
-
-.choose-nickname-view {
-    flex-direction: row-reverse;
-}
-
-.fade-out {
-    opacity: 0;
-    transition: opacity 10s ease-out
-}
-
-.game-view>.bottom-section {
-    position: absolute;
-    bottom: 0;
-    left: 0
-}
-
-.room-view {
-    margin-top: 0;
-}
-
-.room-view>.container {
-    max-width: none;
-    max-height: none;
-    border-radius: 0;
-    width: 100%;
-    margin-top: 40px;
-    margin-bottom: 30px;
-}
-
-.roomlist-view>.dialog,
-.view-wrapper>.dialog {
-    max-width: calc(100vw - 2vw);
-    max-height: calc(100vh - 2vw);
-}
-
-.showing-room-view>.gameplay-section {
-    display: none;
-}
-
-[data-hook=ok] {
-    text-transform: uppercase;
-}
-
-.filters::after {
-    content: "\A\A © Vixel Dev 2024 - HaxBall Mobile for InjecThor";
-    white-space: pre;
-    font-style: italic;
-}`;
-    gameFrame.document.head.appendChild(e);
+    stylesheet.innerHTML += '.game-view>.top-section,.room-view{margin-top:0}body{background:#1a2125}[data-hook=leave-btn]{background:#c13535!important;margin-right:6px}.chatbox-view,.roomlist-view>.dialog>.splitter>.buttons>.file-btn,.sound-button-container,[data-hook=rec-btn],[data-hook=tvideo-lowlatency],[data-hook=tvideo-showavatars],[data-hook=tvideo-showindicators],[data-hook=tvideo-teamcol],div:has(>[data-hook=chatbgmode]),div:has(>[data-hook=chatfocusheight-range]),div:has(>[data-hook=chatopacity-range]),div:has(>[data-hook=fps]){display:none!important}.game-view>[data-hook=popups]{background-color:#1a212585!important}h1{border-bottom-color:#fec45b!important}.room-view{margin-bottom:0;height:100%}.room-view>.container{margin-top:auto!important;max-width:none;max-height:none;border-radius:0;width:100%;margin-bottom:30px}.room-view>.container>.header-btns{bottom:0;top:auto;display:flex;flex-flow:row-reverse;left:10px;right:auto}[data-hook=stadium-pick]{position:fixed!important;background:0 0!important;color:transparent!important;width:300px;height:20px}[data-hook=stadium-name]{text-decoration:underline}.room-view>.container>.controls{display:flex;align-self:center;position:absolute;bottom:0;right:10px;top:auto;margin-bottom:15px!important;z-index:1}.settings-view{width:100%;height:100%;max-height:unset;border-radius:0}.settings-view .tabcontents{width:100%;text-align:-webkit-center}.settings-view .section.selected{display:flex;width:max-content}.choose-nickname-view{flex-direction:row-reverse}.fade-out{opacity:0;transition:opacity 10s ease-out}.game-view>.bottom-section{position:absolute;bottom:0;left:0}.roomlist-view>.dialog,.view-wrapper>.dialog{max-width:calc(100vw - 2vw);max-height:calc(100vh - 2vw)}.showing-room-view>.gameplay-section{display:none}[data-hook=ok]{text-transform:uppercase}.filters::after{content:"\A\A © Vixel Dev 2024 - HaxBall Mobile for InjecThor";white-space:pre;font-style:italic}'
 }
 
 //Set a custom font to the whole site
@@ -253,6 +91,51 @@ if (typeof CUSTOM_LOGO !== 'undefined') {
 //Hide the header
 if (typeof HIDE_HEADER !== 'undefined') {
     document.querySelector('.header').remove();
+}
+
+function roomAdminSettings(element) {
+    if (typeof ROOM_ADMIN_SETTINGS !== 'undefined') {
+        var tapedTwice = false;
+
+        function openPlayerSettings() {
+            var event = new MouseEvent("contextmenu", { bubbles: true, cancelable: true, view: window, button: 2 });
+            element.dispatchEvent(event);
+        }
+
+        function doubleTouch(event) {
+            if (!tapedTwice) {
+                tapedTwice = true;
+                setTimeout(function() { tapedTwice = false; }, 300);
+                return false;
+            }
+            event.preventDefault();
+            openPlayerSettings()
+            //emulateDragAndDrop(element, gameFrame.document.querySelector("body > div:nth-child(1) > div > div.top-section > div > div > div.teams > div.player-list-view.t-blue > div.list.thin-scrollbar"), element.querySelector('[data-hook="name"]').innerHTML);
+        }
+
+        /*function() {
+            const sourceElement = gameFrame.document.querySelector("body > div:nth-child(1) > div > div.top-section > div > div > div.teams > div.player-list-view.t-spec > div.list.thin-scrollbar > div");
+            const targetElement = gameFrame.document.querySelector("body > div:nth-child(1) > div > div.top-section > div > div > div.teams > div.player-list-view.t-blue > div.list.thin-scrollbar")
+
+            const dataTransfer = new DataTransfer();
+
+            const dragStartEvent = new Event('dragstart', {
+                bubbles: true,
+                cancelable: true,
+            });
+            const dropEvent = new Event('drop', {
+                bubbles: true,
+                cancelable: true,
+            });
+
+            dragStartEvent.dataTransfer = dataTransfer;
+            //dropEvent.dataTransfer = dataTransfer;
+
+            sourceElement.dispatchEvent(dragStartEvent);
+            targetElement.dispatchEvent(dropEvent);
+        }*/
+        element.addEventListener('touchstart', doubleTouch)
+    }
 }
 
 //Roomlist search bar and button
@@ -329,20 +212,23 @@ function prefabMessage(msg) {
 if (typeof VIRTUAL_JOYSTICK !== 'undefined') {
     const joystick = document.createElement("div");
     const joystickPanel = document.createElement("div");
+    const kickPanel = document.createElement("div");
     const stick = document.createElement("div");
 
     joystick.setAttribute("id", "joystick");
     joystickPanel.setAttribute("id", "joystick-panel");
+    kickPanel.setAttribute("id", "kick-panel");
     stick.setAttribute("id", "stick");
     joystick.style.visibility = 'hidden';
 
+    document.body.appendChild(kickPanel);
     document.body.appendChild(joystickPanel);
     joystickPanel.appendChild(joystick)
     joystick.appendChild(stick);
 
     let joystickStylesheet = document.createElement("style");
     joystickStylesheet.innerHTML = `:root {
-                                        --joystick-size: 30vh;
+                                        --joystick-size: 40vh;
                                         --joystick-opacity: 1
                                     }
 
@@ -367,11 +253,21 @@ if (typeof VIRTUAL_JOYSTICK !== 'undefined') {
                                     }
 
                                     #joystick-panel {
-                                        width: 30%;
-                                        height: 100%;
+                                        width: 35%;
+                                        height: 70%;
                                         position: absolute;
                                         left: 0;
                                         bottom: 0;
+                                        display:none;
+                                    }
+
+                                    #kick-panel {
+                                        width: 35%;
+                                        height: 70%;
+                                        position: absolute;
+                                        right: 0;
+                                        bottom: 0;
+                                        display:none;
                                     }
 
                                     #stick {
@@ -404,6 +300,12 @@ if (typeof VIRTUAL_JOYSTICK !== 'undefined') {
 
     joystickPanel.addEventListener('mousemove', moveStick);
     joystickPanel.addEventListener('touchmove', moveStick);
+
+    kickPanel.addEventListener('mousedown', startKick);
+    kickPanel.addEventListener('touchstart', startKick);
+
+    kickPanel.addEventListener('mouseup', endKick);
+    kickPanel.addEventListener('touchend', endKick);
 
     function startDrag(e) {
         isDragging = true;
@@ -480,17 +382,24 @@ if (typeof VIRTUAL_JOYSTICK !== 'undefined') {
         activeTime = period * dutyCicle[key];
         inactiveTime = period - activeTime;
 
-        if (dutyCicle[key] > 0.05) {
-            gameFrame.document.dispatchEvent(new KeyboardEvent("keydown", { code: "Key" + [key] }));
-            //gameFrame.document.dispatchEvent(new KeyboardEvent("keydown", { code: "KeyW" }));
+        if (dutyCicle[key] > 0.1) {
+            emulateKey("Key" + [key], true)
         }
 
         setTimeout(() => {
             if (dutyCicle[key] < 0.85) {
-                gameFrame.document.dispatchEvent(new KeyboardEvent("keyup", { code: "Key" + [key] }));
+                emulateKey("Key" + [key], false)
             }
             setTimeout(function() { joystickTick(key) }, inactiveTime);
         }, activeTime);
+    }
+
+    function emulateKey(key, type) {
+        if (type) {
+            gameFrame.document.dispatchEvent(new KeyboardEvent("keydown", { code: key }));
+        } else {
+            gameFrame.document.dispatchEvent(new KeyboardEvent("keyup", { code: key }));
+        }
     }
 
     // Inicia la emulación
@@ -498,4 +407,22 @@ if (typeof VIRTUAL_JOYSTICK !== 'undefined') {
     joystickTick("A");
     joystickTick("S");
     joystickTick("D");
+
+    function startKick(){
+        emulateKey("KeyX", true)
+    }
+
+    function endKick(){
+        emulateKey("KeyX", false)
+    }
+
+    function showControls(v) {
+        if (v) {
+            joystickPanel.style.display = "block";
+            kickPanel.style.display = "block";
+        } else {
+            joystickPanel.style.display = "none";
+            kickPanel.style.display = "none";
+        }
+    }
 }
