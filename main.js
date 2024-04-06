@@ -1,1 +1,501 @@
-const e=document.querySelector(".gameframe").contentWindow;let t=document.createElement("style");e.document.head.appendChild(t);let n=document.querySelector(".gameframe").contentWindow.document.body;document.querySelector("meta[name=viewport]").setAttribute("content","width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0");const o=!0,i=!0,a=!0,c={url:"https://seeklogo.com/images/A/argentine-football-association-afa-2018-logo-BDF55D25F3-seeklogo.com.png",height:"100px"},l={name:"Inter",type:"sans-serif",url:"https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"};new MutationObserver((function(e,t){e.forEach((e=>{"childList"===e.type&&(r("loader-view")||(n.querySelector(".roomlist-view")?(r("search")||function(){if(void 0!==o){const e=document.createElement("div");e.className="label-input",e.style.backgroundColor="transparent",e.style.padding="0",e.innerHTML='<label>Search a room:</label><br><input data-hook="search" placeholder="Type here..." type="text">';d(n.querySelector("div.dialog>p:nth-child(2)"),e);const t=e.querySelector("input");t.addEventListener("input",(function(){s(t.value)}))}}(),r("url-room")||function(){if(void 0!==i){let e=document.createElement("button");e.setAttribute("data-hook","url-room"),e.innerHTML='<i class="icon-link"></i><div>Paste Room</div>',e.addEventListener("click",(function(){navigator.clipboard.readText().then((e=>function(e){const t=e.replace(/^https?:\/\/(www\.)?haxball\.com\/play\?c=/,"");t.length>0&&window.location.replace("https://www.haxball.com/play?c="+t)}(e)),(e=>console.log(e)))})),d(r("join"),e)}}(),s(r("search").value)):n.querySelector(".room-view")&&(r("store")||function(){if(void 0!==a){let e=document.createElement("button");e.setAttribute("data-hook","store"),e.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 407 407" fill="white" style="height:0.85em; width: auto"><path d="M402 84 323 5c-3-3-7-5-12-5H17C8 0 0 8 0 17v373c0 9 8 17 17 17h373c9 0 17-8 17-17V96c0-4-2-9-5-12zm-101 80H67V39h234v125z"></path><path d="M214 148h43c3 0 6-2 6-6V60c0-4-3-6-6-6h-43c-3 0-6 2-6 6v82c0 4 3 6 6 6z"></path></svg> Store',d(r("rec-btn"),e),e.addEventListener("click",(function(){!function(e){const t=n.querySelector(".chatbox-view").querySelector("input");t.focus(),t.value=e,t.dispatchEvent(new KeyboardEvent("keydown",{key:"Enter",bubbles:!0,cancelable:!0,keyCode:13,which:13}))}("/store")}))}}(),n.querySelector(".room-view .admin")&&n.querySelectorAll(".player-list-item").forEach((function(e){let t;e.addEventListener("touchstart",(function(n){var o;1===n.touches.length&&(t&&n.timeStamp<=t?(n.preventDefault(),o=new MouseEvent("contextmenu",{bubbles:!0,cancelable:!0,view:window,button:2}),e.dispatchEvent(o),t=null):t=n.timeStamp+400)}))})))))}))})).observe(n,{childList:!0,subtree:!0}),document.querySelector(".rightbar").remove();{let y=document.createElement("link");y.href="https://raw.githubusercontent.com/VixelDevelopment/HaxballMobile/main/custom.css",y.rel="stylesheet",y.type="text/css",e.document.head.appendChild(y)}if(void 0!==l){let v=document.createElement("link");v.href=l.url,v.rel="stylesheet",e.document.head.appendChild(v),t.innerHTML+=`* {font-family: '${l.name}', ${l.type} !important;}`}function s(e){if(void 0!==o){const t=e;n.querySelectorAll("tr").forEach((e=>{const n=e.querySelector('span[data-hook="name"]');n&&!n.textContent.toLowerCase().includes(t)?e.style.display="none":e.removeAttribute("style")}))}}function r(e){return n.querySelector('[data-hook="'+e+'"]')}function d(e,t){e.parentNode.insertBefore(t,e.nextSibling)}void 0!==c&&(t.innerHTML+=`.choose-nickname-view>img {content: url("${c.url}");height:${c.height||"auto"};width:${c.width||"auto"}}`),document.querySelector(".header").remove();{const f=document.createElement("div"),b=document.createElement("div"),w=document.createElement("div");f.setAttribute("id","joystick"),b.setAttribute("id","joystick-panel"),w.setAttribute("id","stick"),f.style.visibility="hidden",document.body.appendChild(b),b.appendChild(f),f.appendChild(w);let g=document.createElement("style");g.innerHTML=":root {\n                                        --joystick-size: 30vh;\n                                        --joystick-opacity: 1\n                                    }\n\n                                    #joystick,\n                                    #stick {\n                                        touch-action: none;\n                                        background-color:#c2c2c255;\n                                        box-shadow:6px 6px 10px 0 #a5abb133,-5px -5px 9px 0 #a5abb133;\n                                        color:#dedede55;\n                                        font-weight:bolder;\n                                        font-size:1.5rem;\n                                        border-radius: 50%;\n                                    }\n\n                                    #joystick {\n                                        width: var(--joystick-size);\n                                        height: var(--joystick-size);\n                                        opacity: var(--joystick-opacity);\n                                        position: absolute;\n                                        left: 0;\n                                        bottom: 0;\n                                    }\n\n                                    #joystick-panel {\n                                        width: 30%;\n                                        height: 100%;\n                                        position: absolute;\n                                        left: 0;\n                                        bottom: 0;\n                                    }\n\n                                    #stick {\n                                        width: calc(var(--joystick-size) * .45);\n                                        height: calc(var(--joystick-size) * .45);\n                                        position: absolute;\n                                        top: 50%;\n                                        left: 50%;\n                                        transform: translate(-50%, -50%)\n                                    }",document.head.appendChild(g);let k,E=!1;let x={W:0,A:0,S:0,D:0};const M=1/40*1e3;let S=M*x,L=M-S;function u(e){E=!0;const t=f.getBoundingClientRect();let n=e.touches[0].clientX-t.left,o=e.touches[0].clientY-t.top;n-=f.offsetWidth/2,o-=f.offsetHeight/2,f.style.transform=`translate(${n}px,${o}px)`,f.style.visibility="visible",e.preventDefault()}function h(e){E=!1,f.style.transform="",f.style.visibility="hidden",w.style.transition="transform 0.1s ease-out",w.style.transform="translate(-50%, -50%)",k=0,x.W=0,x.A=0,x.S=0,x.D=0}function m(e){if(!E)return;const t=f.getBoundingClientRect();w.getBoundingClientRect();let n=e.clientX-t.left,o=e.clientY-t.top;"touchmove"===e.type&&(n=e.touches[0].clientX-t.left,o=e.touches[0].clientY-t.top);const i=f.offsetWidth/2,a=f.offsetHeight/2;let c=(n-i)/(f.offsetWidth/2),l=(o-a)/(f.offsetHeight/2);c=Math.min(1,Math.max(-1,c)),l=Math.min(1,Math.max(-1,l));let s=Math.atan2(o-a,n-i)*(180/Math.PI),r=Math.min(f.offsetWidth/2,Math.sqrt(Math.pow(n-i,2)+Math.pow(o-a,2)));w.style.transition="none",w.style.transform=`translate(${r*Math.cos(s*(Math.PI/180))-i/2}px, ${r*Math.sin(s*(Math.PI/180))-a/2}px)`,x.D=c,x.A=-1*c,x.S=l,x.W=-1*l}function p(t){S=M*x[t],L=M-S,x[t]>.05&&e.document.dispatchEvent(new KeyboardEvent("keydown",{code:"Key"+[t]})),setTimeout((()=>{x[t]<.85&&e.document.dispatchEvent(new KeyboardEvent("keyup",{code:"Key"+[t]})),setTimeout((function(){p(t)}),L)}),S)}b.addEventListener("mousedown",u),b.addEventListener("touchstart",u),b.addEventListener("mouseup",h),b.addEventListener("touchend",h),b.addEventListener("mousemove",m),b.addEventListener("touchmove",m),p("W"),p("A"),p("S"),p("D")}
+const gameFrame = document.querySelector('.gameframe').contentWindow;
+
+let stylesheet = document.createElement("style");
+gameFrame.document.head.appendChild(stylesheet);
+
+let body = document.querySelector('.gameframe').contentWindow.document.body;
+
+document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0');
+
+/* ONLY COMMENT TO DISABLE*/
+const VIRTUAL_JOYSTICK = true;
+const JOYSTICK = true;
+const HIDE_HEADER = true;
+const ADBLOCK = true;
+const ROOM_SEARCH = true;
+const CLIPBOARD_ROOM = true;
+const STORE_BUTTON = true;
+const CUSTOM_CSS = true;
+const CUSTOM_LOGO = { "url": "https://seeklogo.com/images/A/argentine-football-association-afa-2018-logo-BDF55D25F3-seeklogo.com.png", "height": "100px" };
+const CUSTOM_FONT = { "name": "Inter", "type": "sans-serif", "url": "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" };
+
+const observer = new MutationObserver(onDOMChange);
+
+const observerConfig = { childList: true, subtree: true };
+observer.observe(body, observerConfig);
+
+function onDOMChange(mutationsList, observer) {
+    mutationsList.forEach(mutation => {
+        if (mutation.type === 'childList') {
+            if (!getByDataHook("loader-view")) {
+                if (body.querySelector('.roomlist-view')) {
+                    if (!getByDataHook('search')) createSearchbar();
+                    if (!getByDataHook('url-room')) createURLButton();
+                    filterRooms(getByDataHook("search").value)
+                } else if (body.querySelector('.room-view')) {
+                    if (!getByDataHook('store')) createStoreButton();
+
+                    if (body.querySelector('.room-view .admin')) {
+                        body.querySelectorAll('.player-list-item').forEach(function(element) {
+                            let expired
+                            let doubleTouch = function(e) {
+                                if (e.touches.length === 1) {
+                                    if (!expired) {
+                                        expired = e.timeStamp + 400
+                                    } else if (e.timeStamp <= expired) {
+                                        e.preventDefault()
+                                        openPlayerSettings()
+                                        expired = null
+                                    } else {
+                                        expired = e.timeStamp + 400
+                                    }
+                                }
+                            }
+
+                            function openPlayerSettings() {
+                                var event = new MouseEvent("contextmenu", { bubbles: true, cancelable: true, view: window, button: 2 });
+                                element.dispatchEvent(event);
+                            }
+                            element.addEventListener('touchstart', doubleTouch)
+                        });
+                    }
+                }
+            }
+        }
+    });
+}
+
+if (typeof ADBLOCK !== 'undefined') {
+    document.querySelector('.rightbar').remove();
+}
+
+function createURLButton() {
+    if (typeof CLIPBOARD_ROOM !== 'undefined') {
+        let button = document.createElement("button");
+        button.setAttribute("data-hook", "url-room");
+        button.innerHTML = '<i class="icon-link"></i><div>Paste Room</div>';
+
+        button.addEventListener("click", function() {
+            navigator.clipboard.readText().then(cliptext => openHaxballURL(cliptext),err => console.log(err));
+        });
+        insertAfter(getByDataHook('join'), button)
+    }
+}
+
+//Set a custom stylesheet
+if (typeof CUSTOM_CSS !== 'undefined') {
+    e = document.createElement("style");
+    e.innerHTML = `/* HaxBall Mobile custom stylesheet */
+
+body {
+    background: #1a2125
+}
+
+[data-hook=leave-btn] {
+    background: #c13535 !important;
+}
+
+[data-hook="tvideo-lowlatency"],
+[data-hook="tvideo-teamcol"],
+[data-hook="tvideo-showindicators"],
+[data-hook="tvideo-showavatars"],
+div:has(>[data-hook="fps"]),
+div:has(>[data-hook="chatopacity-range"]),
+div:has(>[data-hook="chatfocusheight-range"]),
+div:has(>[data-hook="chatbgmode"]),
+.roomlist-view>.dialog>.splitter>.buttons>.file-btn,
+[data-hook="rec-btn"],
+.sound-button-container {
+    display: none !important;
+}
+
+.game-view>[data-hook=popups] {
+    background-color: #1a212585 !important;
+}
+
+h1 {
+    border-bottom-color: #fec45b !important;
+}
+
+.game-view>.top-section {
+    margin-top: 0;
+}
+
+.room-view {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100%;
+}
+
+.room-view>.container {
+    margin-top: auto !important;
+    margin-bottom: 0;
+}
+
+.room-view>.container>.header-btns {
+    bottom: 0;
+    top: auto;
+    display: flex;
+    flex-flow: row-reverse;
+    left: 10px;
+    right: auto;
+}
+
+[data-hook="leave-btn"] {
+    background-color: #dd3333;
+    margin-right: 6px;
+}
+
+[data-hook="stadium-pick"] {
+    position: fixed !important;
+    background: transparent !important;
+    color: transparent !important;
+    width: 300px;
+    height: 20px;
+}
+
+[data-hook="stadium-name"] {
+    text-decoration: underline;
+}
+
+.room-view>.container>.controls {
+    display: flex;
+    align-self: center;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    top: auto;
+    margin-bottom: 15px !important;
+    z-index: 1;
+}
+
+.settings-view {
+    width: 100%;
+    height: 100%;
+    max-height: unset;
+    border-radius: 0;
+}
+
+.settings-view .tabcontents {
+    width: 100%;
+    text-align: -webkit-center;
+}
+
+.settings-view .section.selected {
+    display: flex;
+    width: max-content;
+}
+
+.choose-nickname-view {
+    flex-direction: row-reverse;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 10s ease-out
+}
+
+.game-view>.bottom-section {
+    position: absolute;
+    bottom: 0;
+    left: 0
+}
+
+.room-view {
+    margin-top: 0;
+}
+
+.room-view>.container {
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.roomlist-view>.dialog,
+.view-wrapper>.dialog {
+    max-width: calc(100vw - 2vw);
+    max-height: calc(100vh - 2vw);
+}
+
+.showing-room-view>.gameplay-section {
+    display: none;
+}
+
+[data-hook=ok] {
+    text-transform: uppercase;
+}
+
+.filters::after {
+    content: "\A\A © Vixel Dev 2024 - HaxBall Mobile for InjecThor";
+    white-space: pre;
+    font-style: italic;
+}`;
+    gameFrame.document.head.appendChild(e);
+}
+
+//Set a custom font to the whole site
+if (typeof CUSTOM_FONT !== 'undefined') {
+    let e = document.createElement("link");
+    e.href = CUSTOM_FONT["url"];
+    e.rel = 'stylesheet';
+    gameFrame.document.head.appendChild(e);
+    stylesheet.innerHTML += `* {font-family: '${CUSTOM_FONT["name"]}', ${CUSTOM_FONT["type"]} !important;}`;
+}
+
+//Set a custom logo for the change nick view
+if (typeof CUSTOM_LOGO !== 'undefined') {
+    stylesheet.innerHTML += `.choose-nickname-view>img {content: url("${CUSTOM_LOGO["url"]}");height:${CUSTOM_LOGO["height"]||"auto"};width:${CUSTOM_LOGO["width"]||"auto"}}`;
+}
+
+//Hide the header
+if (typeof HIDE_HEADER !== 'undefined') {
+    document.querySelector('.header').remove();
+}
+
+//Roomlist search bar and button
+
+function filterRooms(str) {
+    if (typeof ROOM_SEARCH !== 'undefined') {
+        const e = str;
+        body.querySelectorAll("tr").forEach((t => {
+            const o = t.querySelector('span[data-hook="name"]');
+            o && !o.textContent.toLowerCase().includes(e) ? t.style.display = "none" : t.removeAttribute("style")
+        }));
+    }
+}
+
+function createSearchbar() {
+    if (typeof ROOM_SEARCH !== 'undefined') {
+        const inputContainer = document.createElement("div");
+        inputContainer.className = "label-input";
+        inputContainer.style.backgroundColor = "transparent";
+        inputContainer.style.padding = "0";
+        inputContainer.innerHTML = '<label>Search a room:</label><br><input data-hook="search" placeholder="Type here..." type="text">';
+
+        const secondParagraph = body.querySelector("div.dialog>p:nth-child(2)");
+
+        insertAfter(secondParagraph, inputContainer);
+        const input = inputContainer.querySelector('input');
+        input.addEventListener("input", function() { filterRooms(input.value) });
+    }
+}
+
+function createStoreButton() {
+    if (typeof STORE_BUTTON !== 'undefined') {
+        let store = document.createElement("button");
+        store.setAttribute("data-hook", "store");
+        store.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 407 407" fill="white" style="height:0.85em; width: auto"><path d="M402 84 323 5c-3-3-7-5-12-5H17C8 0 0 8 0 17v373c0 9 8 17 17 17h373c9 0 17-8 17-17V96c0-4-2-9-5-12zm-101 80H67V39h234v125z"></path><path d="M214 148h43c3 0 6-2 6-6V60c0-4-3-6-6-6h-43c-3 0-6 2-6 6v82c0 4 3 6 6 6z"></path></svg> Store';
+        insertAfter(getByDataHook('rec-btn'), store);
+        store.addEventListener("click", function() {
+            prefabMessage("/store")
+        });
+    }
+}
+
+function getByDataHook(dataHook) {
+    return body.querySelector('[data-hook="' + dataHook + '"]');
+}
+
+function insertAfter(e, n) {
+    e.parentNode.insertBefore(n, e.nextSibling);
+}
+
+function openHaxballURL(uri) {
+    const code = uri.replace(/^https?:\/\/(www\.)?haxball\.com\/play\?c=/, "");
+
+    if (code.length > 0) {
+        window.location.replace("https://www.haxball.com/play?c=" + code);
+    }
+}
+
+function prefabMessage(msg) {
+    const chatbox = body.querySelector('.chatbox-view');
+    const input = chatbox.querySelector('input');
+    input.focus();
+    input.value = msg;
+
+    input.dispatchEvent(new KeyboardEvent("keydown", {
+        key: "Enter",
+        bubbles: true,
+        cancelable: true,
+        keyCode: 13,
+        which: 13,
+    }));
+}
+
+if (typeof VIRTUAL_JOYSTICK !== 'undefined') {
+    const joystick = document.createElement("div");
+    const joystickPanel = document.createElement("div");
+    const stick = document.createElement("div");
+
+    joystick.setAttribute("id", "joystick");
+    joystickPanel.setAttribute("id", "joystick-panel");
+    stick.setAttribute("id", "stick");
+    joystick.style.visibility = 'hidden';
+
+    document.body.appendChild(joystickPanel);
+    joystickPanel.appendChild(joystick)
+    joystick.appendChild(stick);
+
+    let joystickStylesheet = document.createElement("style");
+    joystickStylesheet.innerHTML = `:root {
+                                        --joystick-size: 30vh;
+                                        --joystick-opacity: 1
+                                    }
+
+                                    #joystick,
+                                    #stick {
+                                        touch-action: none;
+                                        background-color:#c2c2c255;
+                                        box-shadow:6px 6px 10px 0 #a5abb133,-5px -5px 9px 0 #a5abb133;
+                                        color:#dedede55;
+                                        font-weight:bolder;
+                                        font-size:1.5rem;
+                                        border-radius: 50%;
+                                    }
+
+                                    #joystick {
+                                        width: var(--joystick-size);
+                                        height: var(--joystick-size);
+                                        opacity: var(--joystick-opacity);
+                                        position: absolute;
+                                        left: 0;
+                                        bottom: 0;
+                                    }
+
+                                    #joystick-panel {
+                                        width: 30%;
+                                        height: 100%;
+                                        position: absolute;
+                                        left: 0;
+                                        bottom: 0;
+                                    }
+
+                                    #stick {
+                                        width: calc(var(--joystick-size) * .45);
+                                        height: calc(var(--joystick-size) * .45);
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%)
+                                    }`;
+    document.head.appendChild(joystickStylesheet);
+
+    let isDragging = false;
+
+    let joystickAngle, joystickForce
+
+    const frequency = 40;
+    let dutyCicle = { "W": 0, "A": 0, "S": 0, "D": 0 }
+
+    const period = 1 / frequency * 1000;
+
+    let activeTime = period * dutyCicle;
+    let inactiveTime = period - activeTime;
+
+    joystickPanel.addEventListener('mousedown', startDrag);
+    joystickPanel.addEventListener('touchstart', startDrag);
+
+    joystickPanel.addEventListener('mouseup', endDrag);
+    joystickPanel.addEventListener('touchend', endDrag);
+
+    joystickPanel.addEventListener('mousemove', moveStick);
+    joystickPanel.addEventListener('touchmove', moveStick);
+
+    function startDrag(e) {
+        isDragging = true;
+        const joystickRect = joystick.getBoundingClientRect();
+
+        let x = e.touches[0].clientX - joystickRect.left;
+        let y = e.touches[0].clientY - joystickRect.top;
+
+        const centerX = joystick.offsetWidth / 2;
+        const centerY = joystick.offsetHeight / 2;
+
+        x -= centerX;
+        y -= centerY;
+
+        joystick.style.transform = `translate(${x}px,${y}px)`;
+        joystick.style.visibility = 'visible';
+        e.preventDefault();
+    }
+
+    function endDrag(e) {
+        isDragging = false;
+        joystick.style.transform = '';
+        joystick.style.visibility = 'hidden';
+        resetStick();
+    }
+
+    function moveStick(e) {
+        if (!isDragging) return;
+
+        const joystickRect = joystick.getBoundingClientRect();
+        const stickRect = stick.getBoundingClientRect();
+
+        let x = e.clientX - joystickRect.left;
+        let y = e.clientY - joystickRect.top;
+
+        if (e.type === 'touchmove') {
+            x = e.touches[0].clientX - joystickRect.left;
+            y = e.touches[0].clientY - joystickRect.top;
+        }
+
+        const centerX = joystick.offsetWidth / 2;
+        const centerY = joystick.offsetHeight / 2;
+
+        let distanceX = (x - centerX) / (joystick.offsetWidth / 2);
+        let distanceY = (y - centerY) / (joystick.offsetHeight / 2);
+
+        // Clipping between -1 and 1
+        distanceX = Math.min(1, Math.max(-1, distanceX));
+        distanceY = Math.min(1, Math.max(-1, distanceY));
+
+        let angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
+        let distance = Math.min(joystick.offsetWidth / 2, Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2)));
+
+        stick.style.transition = 'none';
+        stick.style.transform = `translate(${distance * Math.cos(angle * (Math.PI / 180))-centerX/2}px, ${distance * Math.sin(angle * (Math.PI / 180))-centerY/2}px)`;
+
+        dutyCicle["D"] = distanceX
+        dutyCicle["A"] = distanceX * -1
+        dutyCicle["S"] = distanceY
+        dutyCicle["W"] = distanceY * -1
+    }
+
+    function resetStick() {
+        stick.style.transition = 'transform 0.1s ease-out';
+        stick.style.transform = 'translate(-50%, -50%)';
+        joystickForce = 0
+        dutyCicle["W"] = 0
+        dutyCicle["A"] = 0
+        dutyCicle["S"] = 0
+        dutyCicle["D"] = 0
+    }
+
+    function joystickTick(key) {
+        activeTime = period * dutyCicle[key];
+        inactiveTime = period - activeTime;
+
+        if (dutyCicle[key] > 0.05) {
+            gameFrame.document.dispatchEvent(new KeyboardEvent("keydown", { code: "Key" + [key] }));
+            //gameFrame.document.dispatchEvent(new KeyboardEvent("keydown", { code: "KeyW" }));
+        }
+
+        setTimeout(() => {
+            if (dutyCicle[key] < 0.85) {
+                gameFrame.document.dispatchEvent(new KeyboardEvent("keyup", { code: "Key" + [key] }));
+            }
+            setTimeout(function() { joystickTick(key) }, inactiveTime);
+        }, activeTime);
+    }
+
+    // Inicia la emulación
+    joystickTick("W");
+    joystickTick("A");
+    joystickTick("S");
+    joystickTick("D");
+}
