@@ -1,1 +1,445 @@
-const t=document.querySelector(".gameframe").contentWindow;let e=document.createElement("style");t.document.head.appendChild(e);let n=document.querySelector(".gameframe").contentWindow.document.body;document.querySelector("meta[name=viewport]").setAttribute("content","width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0");var i=document.createElement("meta");i.setAttribute("http-equiv","X-UA-Compatible"),i.setAttribute("content","ie=edge"),t.document.head.appendChild(i);const o=!0,a=!0,s=!0,l=!0,c=!0,r=!0,d=!0,u="https://raw.githubusercontent.com/VixelDevelopment/HaxballMobile/main/custom.css",p={url:"https://seeklogo.com/images/A/argentine-football-association-afa-2018-logo-BDF55D25F3-seeklogo.com.png",height:"100px"},h={name:"Inter",type:"sans-serif",url:"https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"};localStorage.getItem("low_latency_canvas")||(localStorage.setItem("low_latency_canvas",0),location.reload());function m(){const t=n.querySelector(".chatbox-view").querySelector(".input");t.querySelector("input");t.style=""}new MutationObserver((function(t,e){T("loader-view")||(n.querySelector(".roomlist-view")?(T("search")||function(){if(void 0!==a){const t=document.createElement("div");t.className="label-input",t.style.backgroundColor="transparent",t.style.padding="0",t.innerHTML='<label>Search a room:</label><br><input data-hook="search" placeholder="Type here..." type="text">';_(n.querySelector("div.dialog>p:nth-child(2)"),t);const e=t.querySelector("input");e.addEventListener("input",(function(){M(e.value)}))}}(),T("url-room")||function(){if(void 0!==s){let t=document.createElement("button");t.setAttribute("data-hook","url-room"),t.innerHTML='<i class="icon-link"></i><div>Paste Room</div>',t.addEventListener("click",(function(){navigator.clipboard.readText().then((t=>function(t){const e=t.replace(/^https?:\/\/(www\.)?haxball\.com\/play\?c=/,"");e.length>0&&window.location.replace("https://www.haxball.com/play?c="+e)}(t)),(t=>console.log(t)))})),_(T("join"),t)}}(),M(T("search").value),N(!1)):n.querySelector(".settings-view")?T("inputopacity-value")||(!function(){const t=T("inputsec"),e=localStorage.getItem("input_opacity")||.8,n=localStorage.getItem("input_size")||40,i=localStorage.getItem("input_fixed")||0,o=localStorage.getItem("input_margin")||10,a=document.createElement("div");a.classList.add("option-row");const s=document.createElement("div");s.setAttribute("style","margin-right: 10px; flex: 1; max-width: 115px;"),s.textContent="Joystick Opacity";const l=document.createElement("div");l.setAttribute("style","width: 40px"),l.setAttribute("data-hook","inputopacity-value");const c=document.createElement("input");c.classList.add("slider"),c.setAttribute("type","range"),c.setAttribute("min","0.25"),c.setAttribute("max","1"),c.setAttribute("step","0.01"),c.setAttribute("data-hook","inputopacity-range"),c.onchange=X,c.oninput=X,c.value=e,l.innerText=c.value,a.appendChild(s),a.appendChild(l),a.appendChild(c);const r=document.createElement("div");r.classList.add("option-row");const d=document.createElement("div");d.setAttribute("style","margin-right: 10px; flex: 1; max-width: 115px;"),d.textContent="Joystick Size";const u=document.createElement("div");u.setAttribute("style","width: 40px"),u.setAttribute("data-hook","inputsize-value");const p=document.createElement("input");p.classList.add("slider"),p.setAttribute("type","range"),p.setAttribute("min","30"),p.setAttribute("max","50"),p.setAttribute("step","1"),p.setAttribute("data-hook","inputsize-range"),p.onchange=V,p.oninput=V,p.value=n,u.innerText=p.value,r.appendChild(d),r.appendChild(u),r.appendChild(p);const h=document.createElement("div");h.classList.add("option-row");const m=document.createElement("div");m.setAttribute("style","margin-right: 10px; flex: 1; max-width: 115px;"),m.textContent="Joystick Margin";const y=document.createElement("div");y.setAttribute("style","width: 40px"),y.setAttribute("data-hook","inputmargin-value");const v=document.createElement("input");v.classList.add("slider"),v.setAttribute("type","range"),v.setAttribute("min","0"),v.setAttribute("max","35"),v.setAttribute("step","1"),v.setAttribute("data-hook","inputmargin-range"),v.onchange=K,v.oninput=K,v.value=o,y.innerText=v.value,h.appendChild(m),h.appendChild(y),h.appendChild(v);const f=document.createElement("div");f.classList.add("toggle");const g=document.createElement("i");1==i?(g.classList.add("icon-ok"),h.style.display="flex"):(g.classList.add("icon-cancel"),h.style.display="none");f.appendChild(g),f.innerHTML+="Fixed joystick",f.onclick=R,t.appendChild(f),t.appendChild(h),t.appendChild(r),t.appendChild(a),Y()}(),createResetSettingsButton(),N(!1)):n.querySelector(".room-view")||n.querySelector(".showing-room-view")?(T("store")||function(){if(void 0!==l){let t=document.createElement("button");t.setAttribute("data-hook","store"),t.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 407 407" fill="white" style="height:0.85em; width: auto"><path d="M402 84 323 5c-3-3-7-5-12-5H17C8 0 0 8 0 17v373c0 9 8 17 17 17h373c9 0 17-8 17-17V96c0-4-2-9-5-12zm-101 80H67V39h234v125z"></path><path d="M214 148h43c3 0 6-2 6-6V60c0-4-3-6-6-6h-43c-3 0-6 2-6 6v82c0 4 3 6 6 6z"></path></svg> Store',_(T("rec-btn"),t),t.addEventListener("click",(function(){H("/store")}))}}(),n.querySelector(".room-view .admin")&&(n.querySelectorAll(".player-list-item").forEach(L),T("shirt-btn")||function(){const t=document.createElement("button");t.setAttribute("data-hook","shirt-btn"),t.classList.add("admin-only"),t.setAttribute("red",""),t.onclick=j;const e=document.createElement("button");e.setAttribute("data-hook","shirt-btn"),e.classList.add("admin-only"),e.setAttribute("blue",""),e.onclick=j,n.querySelector(".t-red > .buttons").appendChild(t),n.querySelector(".t-blue > .buttons").appendChild(e)}(),T("password-btn")||function(){if(void 0!==d){let t=document.createElement("button");t.setAttribute("data-hook","password-btn"),t.style.fontSize="1em",t.style.padding="5px 0",t.classList.add("admin-only");let e=document.createElement("i");e.classList.add("icon-lock"),t.appendChild(e),t.innerHTML+="Password",_(T("reset-all-btn"),t),t.addEventListener("click",(function(){!function(){const t=document.createElement("div");t.classList.add("dialog","basic-dialog","admin-only");const e=document.createElement("h1");e.textContent="Change password";const n=document.createElement("p");n.textContent="Enter the new password or leave the input empty to set the room as public";const i=document.createElement("input");i.setAttribute("data-hook","pass-input"),i.setAttribute("type","text"),i.setAttribute("maxlength","30"),i.setAttribute("placeholder","No password");const o=document.createElement("div");o.classList.add("buttons");const a=document.createElement("button");a.setAttribute("data-hook","close-pass"),a.textContent="Close";const s=document.createElement("button");s.setAttribute("data-hook","set-pass"),s.textContent="Set password",o.appendChild(a),o.appendChild(s),t.appendChild(e),t.appendChild(n),t.appendChild(i),t.appendChild(o);let l=T("popups");T("popups").appendChild(t),l.style.display="flex",i.onkeydown=function(t){t.stopPropagation()},a.onclick=function(){t.remove(),l.style.display="none"},s.onclick=function(){""==i.value?H("/clear_password"):H("/set_password "+i.value),t.remove(),l.style.display="none"}}()}))}}()),z(),N(!1)):!n.querySelector(".game-view")||n.querySelector(".showing-room-view")||n.querySelector(".settings-view")||(N(!0),z()))})).observe(n,{childList:!0,subtree:!0}),document.querySelector(".rightbar").remove();const y=document.createElement("div"),v=document.createElement("div"),f=document.createElement("div"),g=document.createElement("p");let b=["",0];y.setAttribute("id","chat-joystick"),v.setAttribute("id","chat-joystick-panel"),f.setAttribute("id","chat-stick"),f.innerHTML='<svg id="chat-svg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20"><path d="M5.8 12.2V6H2C.9 6 0 6.9 0 8v6c0 1.1.9 2 2 2h1v3l3-3h5c1.1 0 2-.9 2-2v-1.82a.943.943 0 0 1-.2.021h-7zM18 1H9c-1.1 0-2 .9-2 2v8h7l3 3v-3h1c1.1 0 2-.899 2-2V3c0-1.1-.9-2-2-2"/></svg>',g.setAttribute("id","chat-joystick-label"),g.innerText="GG!",document.body.appendChild(v),v.appendChild(y),y.appendChild(g),y.appendChild(f);let w=document.createElement("style");w.innerHTML="#chat-joystick,\n                                    #chat-stick {\n                                        /*touch-action: none;*/\n                                        color:#dedede55;\n                                        font-weight:bolder;\n                                        font-size:1.5rem;\n                                        border-radius: 50%;\n                                    }\n\n                                    #chat-joystick {\n                                        width: 100px;\n                                        height: 100px;\n                                        opacity: 1;\n                                        position: absolute;\n                                        right: 0;\n                                        top: 0;\n                                        margin: 30px\n                                    }\n\n                                    #chat-joystick-panel {\n                                        width: min-content;\n                                        height: min-content;\n                                        position: absolute;\n                                        right: 0;\n                                        top: 35px;\n                                        display: none;\n                                        z-index: 3;\n                                    }\n                                    \n                                    #chat-stick {\n                                        width: calc(100px * .45);\n                                        height: calc(100px * .45);\n                                        position: absolute;\n                                        top: 50%;\n                                        left: 50%;\n                                        transform: translate(-50%, -50%);\n                                        background-color:#244967;\n                                        display: flex;\n                                        align-items: center;\n                                        justify-content: center;\n                                    }\n\n                                    #chat-svg{\n                                        fill: #FFFFFF;\n                                    }\n\n                                    #chat-joystick-label{\n                                            color: white;\n                                            position: absolute;\n                                            text-align: center;\n                                            top: 50%;\n                                            left: 50%;\n                                            transform: translate(-50%, -50%);\n                                            font-size: 0.8em;\n                                            font-family: 'Inter';\n                                            font-weight: normal;\n                                    }\n\n\n                                    ";let x=document.createElement("style");document.head.appendChild(w),document.head.appendChild(x);let k=!1;v.addEventListener("mousedown",E),v.addEventListener("touchstart",E),v.addEventListener("touchstart",(function(t){if(!F)return F=!0,setTimeout((function(){F=!1}),300),!1;t.preventDefault(),function(t=!0){const e=n.querySelector(".chatbox-view").querySelector(".input"),i=e.querySelector("input");e.style="display: block !important;",t&&i.focus(),i.addEventListener("blur",m)}()})),v.addEventListener("mouseup",S),v.addEventListener("touchend",S),v.addEventListener("mousemove",A),v.addEventListener("touchmove",A),C();var F=!1;function E(t){k=!0,t.preventDefault()}function S(t){k=!1,b[1]>30&&H(b[0]),C()}function A(t){if(!k)return;const e=y.getBoundingClientRect();f.getBoundingClientRect();let n=t.clientX-e.left,i=t.clientY-e.top;"touchmove"===t.type&&(n=t.touches[0].clientX-e.left,i=t.touches[0].clientY-e.top);const o=y.offsetWidth/2,a=y.offsetHeight/2;let s=(n-o)/(y.offsetWidth/2),l=(i-a)/(y.offsetHeight/2);s=Math.min(1,Math.max(-1,s)),l=Math.min(1,Math.max(-1,l));let c=Math.atan2(i-a,n-o)*(180/Math.PI),r=Math.min(y.offsetWidth/2,Math.sqrt(Math.pow(n-o,2)+Math.pow(i-a,2)));f.style.transition="none",f.style.transform=`translate(${r*Math.cos(c*(Math.PI/180))-o/2}px, ${r*Math.sin(c*(Math.PI/180))-a/2}px)`;r>30?(c>-25&&c<25?b[0]="GG!":c>65&&c<115?b[0]="Defending":c>-115&&c<-65?b[0]="Pass to me!":(c<-155||c>155)&&(b[0]="Teamwork!"),b[1]=r):(b[0]="",b[1]=0),g.innerText=b[0],g.style.opacity=r/50}function C(){f.style.transition="transform 0.4s ease-out",f.style.transform="translate(-50%, -50%)",b[0]="",b[1]=0,g.style.opacity="0"}if(fetch(u).then((t=>t.text())).then((t=>{e.innerHTML+=t})).catch((t=>{console.error("Error fetching CSS:",t)})),void 0!==h){let G=document.createElement("link");G.href=h.url,G.rel="stylesheet",t.document.head.appendChild(G),e.innerHTML+=`* {font-family: '${h.name}', ${h.type} !important;}`}function L(t){if(void 0!==c){var e=!1;t.addEventListener("touchstart",(function(n){if(!e)return e=!0,setTimeout((function(){e=!1}),300),!1;n.preventDefault(),function(){var e=new MouseEvent("contextmenu",{bubbles:!0,cancelable:!0,view:window,button:2});t.dispatchEvent(e)}()}))}}function M(t){if(void 0!==a){const e=t;n.querySelectorAll("tr").forEach((t=>{const n=t.querySelector('span[data-hook="name"]');n&&!n.textContent.toLowerCase().includes(e)?t.style.display="none":t.removeAttribute("style")}))}}void 0!==p&&(e.innerHTML+=`.choose-nickname-view>img {content: url("${p.url}");height:${p.height||"auto"};width:${p.width||"auto"}}`),document.querySelector(".header").remove();const I={arg:"0 000000 FFFFFF 0D8ED9 FFFFFF",fra:"0 E8B320 0F0D4D",gbr:"90 151AA1 151AA1 FFFFFF FFFFFF",ita:"180 D4BA91 2D4E9D",hvr:"0 3A33FF EBE6FF DBDBDB FFFFFF",jpn:"30 F2F2F2 1930FF 0066FF 101FA3"},q={bel:"0 000000 FF150D BD100A FF150D",bra:"0 167010 FFFF26 F7FF19 FFFF26",prt:"-60 FFCB21 0D3808 FF0D0D",nld:"0 0D0D40 FF9124 FFAE0D FF9124",esp:"0 EBC015 BF0000",mar:"FFFFFF 046317 FF0000 FF0000"};function D(t){const e="red"===t?q:I,n=Object.keys(e);D.currentIndex=D.currentIndex||{},D.currentIndex[t]=D.currentIndex[t]||0;const i=D.currentIndex[t];return D.currentIndex[t]=(i+1)%n.length,e[n[i]]}function j(t){if(void 0!==r){const e=t.target.hasAttribute("red")?"red":"blue";H(`/colors ${e} ${D(e)}`)}}function T(t){return n.querySelector('[data-hook="'+t+'"]')}function _(t,e){t.parentNode.insertBefore(e,t.nextSibling)}function H(t){const e=n.querySelector(".chatbox-view").querySelector("input");e.focus(),e.value=t,e.dispatchEvent(new KeyboardEvent("keydown",{key:"Enter",bubbles:!0,cancelable:!0,keyCode:13,which:13}))}function z(){const t=localStorage.getItem("show_fps")||1;n.querySelector(".stats-view").style=1==t?"":"opacity: 0 !important;",n.querySelector(".stats-view").ontouchstart=function(t){1==(localStorage.getItem("show_fps")||1)?(localStorage.setItem("show_fps",0),t.target.style="opacity: 0 !important;"):(localStorage.setItem("show_fps",1),t.target.style="")}}if(void 0!==o){const J=document.createElement("div"),O=document.createElement("div"),U=document.createElement("div"),Q=document.createElement("div");J.setAttribute("id","joystick"),O.setAttribute("id","joystick-panel"),U.setAttribute("id","kick-panel"),Q.setAttribute("id","stick"),J.style.visibility="hidden",document.body.appendChild(U),document.body.appendChild(O),O.appendChild(J),J.appendChild(Q);let Z=document.createElement("style");Z.innerHTML="#joystick,\n                                    #stick {\n                                        touch-action: none;\n                                        background-color:#c2c2c255;\n                                        box-shadow:6px 6px 10px 0 #a5abb133,-5px -5px 9px 0 #a5abb133;\n                                        color:#dedede55;\n                                        font-weight:bolder;\n                                        font-size:1.5rem;\n                                        border-radius: 50%;\n                                    }\n\n                                    #joystick {\n                                        width: var(--joystick-size);\n                                        height: var(--joystick-size);\n                                        opacity: var(--joystick-opacity);\n                                        position: absolute;\n                                        left: var(--joystick-margin);\n                                        bottom: var(--joystick-margin);\n                                    }\n\n                                    #joystick-panel {\n                                        width: 45%;\n                                        height: 70%;\n                                        position: absolute;\n                                        left: 0;\n                                        bottom: 0;\n                                        display:none;\n                                    }\n\n                                    #kick-panel {\n                                        width: 45%;\n                                        height: 70%;\n                                        position: absolute;\n                                        right: 0;\n                                        bottom: 0;\n                                        display:none;\n                                    }\n\n                                    #stick {\n                                        width: calc(var(--joystick-size) * .45);\n                                        height: calc(var(--joystick-size) * .45);\n                                        position: absolute;\n                                        top: 50%;\n                                        left: 50%;\n                                        transform: translate(-50%, -50%)\n                                    }";let tt=document.createElement("style");document.head.appendChild(Z),document.head.appendChild(tt);let et=!1;let nt={W:0,A:0,S:0,D:0};const it=1/40*1e3;let ot=it*nt,at=it-ot;function E(t){et=!0;if(0==(localStorage.getItem("input_fixed")||0)){const e=J.getBoundingClientRect();let n=t.touches[0].clientX-e.left,i=t.touches[0].clientY-e.top;n-=J.offsetWidth/2,i-=J.offsetHeight/2,J.style.transform=`translate(${n}px,${i}px)`}J.style.visibility="visible",t.preventDefault()}function S(t){et=!1;0==(localStorage.getItem("input_fixed")||0)&&(J.style.transform="",J.style.visibility="hidden"),Q.style.transition="transform 0.1s ease-out",Q.style.transform="translate(-50%, -50%)",joystickForce=0,nt.W=0,nt.A=0,nt.S=0,nt.D=0}function A(t){if(!et)return;const e=J.getBoundingClientRect();Q.getBoundingClientRect();let n=t.clientX-e.left,i=t.clientY-e.top;"touchmove"===t.type&&(n=t.touches[0].clientX-e.left,i=t.touches[0].clientY-e.top);const o=J.offsetWidth/2,a=J.offsetHeight/2;let s=(n-o)/(J.offsetWidth/2),l=(i-a)/(J.offsetHeight/2);s=Math.min(1,Math.max(-1,s)),l=Math.min(1,Math.max(-1,l));let c=Math.atan2(i-a,n-o)*(180/Math.PI),r=Math.min(J.offsetWidth/2,Math.sqrt(Math.pow(n-o,2)+Math.pow(i-a,2)));Q.style.transition="none",Q.style.transform=`translate(${r*Math.cos(c*(Math.PI/180))-o/2}px, ${r*Math.sin(c*(Math.PI/180))-a/2}px)`,nt.D=s,nt.A=-1*s,nt.S=l,nt.W=-1*l}function B(t){ot=it*nt[t],at=it-ot,nt[t]>.1&&W("Key"+[t],!0),setTimeout((()=>{nt[t]<.85&&W("Key"+[t],!1),setTimeout((function(){B(t)}),at)}),ot)}function W(e,n){n?t.document.dispatchEvent(new KeyboardEvent("keydown",{code:e})):t.document.dispatchEvent(new KeyboardEvent("keyup",{code:e}))}function $(){W("KeyX",!0)}function P(){W("KeyX",!1)}function N(t){if(void 0!==o)if(t){const t=localStorage.getItem("input_fixed")||0;O.style.display="block",U.style.display="block",document.body.querySelector("#chat-joystick-panel").style.display="block",1==t&&(J.style.transform="",J.style.visibility="visible"),Y()}else O.style.display="none",U.style.display="none",J.style.transform="",J.style.visibility="hidden",document.body.querySelector("#chat-joystick-panel").style.display="none"}function X(t){localStorage.setItem("input_opacity",t.target.value),t.target.parentNode.children[1].innerText=t.target.value,"input"==t.type?(O.style.display="block",J.style.visibility="visible",J.style.transform=""):(O.style.display="none",J.style.visibility="hidden"),Y()}function K(t){localStorage.setItem("input_margin",t.target.value),t.target.parentNode.children[1].innerText=t.target.value,"input"==t.type?(O.style.display="block",J.style.visibility="visible",J.style.transform=""):(O.style.display="none",J.style.visibility="hidden"),Y()}function R(t){let e=t.target.children[0];e.classList.contains("icon-cancel")?(e.classList.add("icon-ok"),e.classList.remove("icon-cancel"),T("inputmargin-range").parentNode.style.display="flex",localStorage.setItem("input_fixed",1)):(e.classList.remove("icon-ok"),e.classList.add("icon-cancel"),J.style.visibility="hidden",T("inputmargin-range").parentNode.style.display="none",localStorage.setItem("input_fixed",0)),Y()}function V(t){localStorage.setItem("input_size",t.target.value),t.target.parentNode.children[1].innerText=t.target.value,"input"==t.type?(O.style.display="block",J.style.visibility="visible",J.style.transform=""):(O.style.display="none",J.style.visibility="hidden"),Y()}function Y(){const t=localStorage.getItem("input_opacity")||.8,e=localStorage.getItem("input_size")||40;let n;n=1==(localStorage.getItem("input_fixed")||0)?localStorage.getItem("input_margin")||10:0,tt.innerHTML=":root {--joystick-size: "+e+"vh;--joystick-margin: "+n+"vh;--joystick-opacity: "+t+"}"}O.addEventListener("mousedown",E),O.addEventListener("touchstart",E),O.addEventListener("mouseup",S),O.addEventListener("touchend",S),O.addEventListener("mousemove",A),O.addEventListener("touchmove",A),U.addEventListener("mousedown",$),U.addEventListener("touchstart",$),U.addEventListener("mouseup",P),U.addEventListener("touchend",P),B("W"),B("A"),B("S"),B("D")}
+onst gameFrame = document.querySelector('.gameframe').contentWindow;
+
+let stylesheet = document.createElement("style");
+gameFrame.document.head.appendChild(stylesheet);
+
+let body = document.querySelector('.gameframe').contentWindow.document.body;
+
+document.querySelector("meta[name=viewport]").setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0');
+var metaTag = document.createElement('meta');
+
+metaTag.setAttribute('http-equiv', 'X-UA-Compatible');
+metaTag.setAttribute('content', 'ie=edge');
+gameFrame.document.head.appendChild(metaTag);
+
+/* ONLY COMMENT TO DISABLE*/
+const VIRTUAL_JOYSTICK = true;
+const JOYSTICK = true;
+const HIDE_HEADER = true;
+const ADBLOCK = true;
+const ROOM_SEARCH = true;
+const CLIPBOARD_ROOM = true;
+const STORE_BUTTON = true;
+const ROOM_ADMIN_SETTINGS = true;
+const SHIRTS_BUTTON = true;
+const PASSWORD_BUTTON = true;
+const CUSTOM_CSS = "https://raw.githubusercontent.com/VixelDevelopment/HaxballMobile/main/custom.css";
+const CUSTOM_LOGO = { "url": "https://seeklogo.com/images/A/argentine-football-association-afa-2018-logo-BDF55D25F3-seeklogo.com.png", "height": "100px" };
+const CUSTOM_FONT = { "name": "Inter", "type": "sans-serif", "url": "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" };
+
+
+if(!localStorage.getItem('low_latency_canvas')){
+    localStorage.setItem('low_latency_canvas',0)
+    location.reload();
+}
+
+const observer = new MutationObserver(onDOMChange);
+
+const observerConfig = { childList: true, subtree: true };
+observer.observe(body, observerConfig);
+
+function onDOMChange(mutationsList, observer) {
+    if (!getByDataHook("loader-view")) {
+        if (body.querySelector('.roomlist-view')) {
+            if (!getByDataHook('search')) createSearchbar();
+            if (!getByDataHook('url-room')) createURLButton();
+            filterRooms(getByDataHook("search").value)
+            showControls(false)
+        } else if (body.querySelector('.settings-view')) {
+            if (!getByDataHook('inputopacity-value')) {
+                createInputSettings()
+                createResetSettingsButton()
+                showControls(false)
+            }
+        } else if (body.querySelector('.room-view') || body.querySelector('.showing-room-view')) {
+            if (!getByDataHook('store')) createStoreButton();
+            if (body.querySelector('.room-view .admin')) {
+                body.querySelectorAll('.player-list-item').forEach(roomAdminSettings);
+                if (!getByDataHook('shirt-btn')) createShirtButtons();
+                if (!getByDataHook('password-btn')) createPasswordButton();
+            }
+            handleFPSText()
+            showControls(false, true)
+        } else if (body.querySelector('.game-view') && !body.querySelector('.showing-room-view') && !body.querySelector('.settings-view')) {
+            showControls(true)
+            handleFPSText()
+        }
+    }
+}
+
+//<div class="inputrow"><div>Joystick</div><div>Enabled<i class="icon-ok"></i></div></div>
+
+if (typeof ADBLOCK !== 'undefined') {
+    document.querySelector('.rightbar').remove();
+}
+
+function createURLButton() {
+    if (typeof CLIPBOARD_ROOM !== 'undefined') {
+        let button = document.createElement("button");
+        button.setAttribute("data-hook", "url-room");
+        button.innerHTML = '<i class="icon-link"></i><div>Paste Room</div>';
+
+        button.addEventListener("click", function() {
+            navigator.clipboard.readText().then(cliptext => openHaxballURL(cliptext),err => console.log(err));
+        });
+        insertAfter(getByDataHook('join'), button)
+    }
+}
+
+//Set a custom stylesheet
+if (typeof CUSTOM_CSS !== 'undefined') {
+    stylesheet.innerHTML += '.game-view>.top-section,.room-view{margin-top:0}body{background:#1a2125}[data-hook=leave-btn]{background:#c13535!important;margin-right:6px}.chatbox-view,.roomlist-view>.dialog>.splitter>.buttons>.file-btn,.sound-button-container,[data-hook=rec-btn],[data-hook=tvideo-lowlatency],[data-hook=tvideo-showavatars],[data-hook=tvideo-showindicators],[data-hook=tvideo-teamcol],div:has(>[data-hook=chatbgmode]),div:has(>[data-hook=chatfocusheight-range]),div:has(>[data-hook=chatopacity-range]),div:has(>[data-hook=fps]){display:none!important}.game-view>[data-hook=popups]{background-color:#1a212585!important}h1{border-bottom-color:#fec45b!important}.room-view{margin-bottom:0;height:100%}.room-view>.container{margin-top:auto!important;max-width:none;max-height:none;border-radius:0;width:100%;margin-bottom:30px}.room-view>.container>.header-btns{bottom:0;top:auto;display:flex;flex-flow:row-reverse;left:10px;right:auto}[data-hook=stadium-pick]{position:fixed!important;background:0 0!important;color:transparent!important;width:300px;height:20px}[data-hook=stadium-name]{text-decoration:underline}.room-view>.container>.controls{display:flex;align-self:center;position:absolute;bottom:0;right:10px;top:auto;margin-bottom:15px!important;z-index:1}.settings-view{width:100%;height:100%;max-height:unset;border-radius:0}.settings-view .tabcontents{width:100%;text-align:-webkit-center}.settings-view .section.selected{display:flex;width:max-content}.choose-nickname-view{flex-direction:row-reverse}.fade-out{opacity:0;transition:opacity 10s ease-out}.game-view>.bottom-section{position:absolute;bottom:0;left:0}.roomlist-view>.dialog,.view-wrapper>.dialog{max-width:calc(100vw - 2vw);max-height:calc(100vh - 2vw)}.showing-room-view>.gameplay-section{display:none}[data-hook=ok]{text-transform:uppercase}.filters::after{content:"\A\A © Vixel Dev 2024 - HaxBall Mobile for InjecThor";white-space:pre;font-style:italic}'
+}
+
+//Set a custom font to the whole site
+if (typeof CUSTOM_FONT !== 'undefined') {
+    let e = document.createElement("link");
+    e.href = CUSTOM_FONT["url"];
+    e.rel = 'stylesheet';
+    gameFrame.document.head.appendChild(e);
+    stylesheet.innerHTML += `* {font-family: '${CUSTOM_FONT["name"]}', ${CUSTOM_FONT["type"]} !important;}`;
+}
+
+//Set a custom logo for the change nick view
+if (typeof CUSTOM_LOGO !== 'undefined') {
+    stylesheet.innerHTML += `.choose-nickname-view>img {content: url("${CUSTOM_LOGO["url"]}");height:${CUSTOM_LOGO["height"]||"auto"};width:${CUSTOM_LOGO["width"]||"auto"}}`;
+}
+
+//Hide the header
+if (typeof HIDE_HEADER !== 'undefined') {
+    document.querySelector('.header').remove();
+}
+
+function roomAdminSettings(element) {
+    if (typeof ROOM_ADMIN_SETTINGS !== 'undefined') {
+        var tapedTwice = false;
+
+        function openPlayerSettings() {
+            var event = new MouseEvent("contextmenu", { bubbles: true, cancelable: true, view: window, button: 2 });
+            element.dispatchEvent(event);
+        }
+
+        function doubleTouch(event) {
+            if (!tapedTwice) {
+                tapedTwice = true;
+                setTimeout(function() { tapedTwice = false; }, 300);
+                return false;
+            }
+            event.preventDefault();
+            openPlayerSettings()
+            //emulateDragAndDrop(element, gameFrame.document.querySelector("body > div:nth-child(1) > div > div.top-section > div > div > div.teams > div.player-list-view.t-blue > div.list.thin-scrollbar"), element.querySelector('[data-hook="name"]').innerHTML);
+        }
+
+        /*function() {
+            const sourceElement = gameFrame.document.querySelector("body > div:nth-child(1) > div > div.top-section > div > div > div.teams > div.player-list-view.t-spec > div.list.thin-scrollbar > div");
+            const targetElement = gameFrame.document.querySelector("body > div:nth-child(1) > div > div.top-section > div > div > div.teams > div.player-list-view.t-blue > div.list.thin-scrollbar")
+
+            const dataTransfer = new DataTransfer();
+
+            const dragStartEvent = new Event('dragstart', {
+                bubbles: true,
+                cancelable: true,
+            });
+            const dropEvent = new Event('drop', {
+                bubbles: true,
+                cancelable: true,
+            });
+
+            dragStartEvent.dataTransfer = dataTransfer;
+            //dropEvent.dataTransfer = dataTransfer;
+
+            sourceElement.dispatchEvent(dragStartEvent);
+            targetElement.dispatchEvent(dropEvent);
+        }*/
+        element.addEventListener('touchstart', doubleTouch)
+    }
+}
+
+//Roomlist search bar and button
+
+function filterRooms(str) {
+    if (typeof ROOM_SEARCH !== 'undefined') {
+        const e = str;
+        body.querySelectorAll("tr").forEach((t => {
+            const o = t.querySelector('span[data-hook="name"]');
+            o && !o.textContent.toLowerCase().includes(e) ? t.style.display = "none" : t.removeAttribute("style")
+        }));
+    }
+}
+
+function createSearchbar() {
+    if (typeof ROOM_SEARCH !== 'undefined') {
+        const inputContainer = document.createElement("div");
+        inputContainer.className = "label-input";
+        inputContainer.style.backgroundColor = "transparent";
+        inputContainer.style.padding = "0";
+        inputContainer.innerHTML = '<label>Search a room:</label><br><input data-hook="search" placeholder="Type here..." type="text">';
+
+        const secondParagraph = body.querySelector("div.dialog>p:nth-child(2)");
+
+        insertAfter(secondParagraph, inputContainer);
+        const input = inputContainer.querySelector('input');
+        input.addEventListener("input", function() { filterRooms(input.value) });
+    }
+}
+
+function createStoreButton() {
+    if (typeof STORE_BUTTON !== 'undefined') {
+        let store = document.createElement("button");
+        store.setAttribute("data-hook", "store");
+        store.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 407 407" fill="white" style="height:0.85em; width: auto"><path d="M402 84 323 5c-3-3-7-5-12-5H17C8 0 0 8 0 17v373c0 9 8 17 17 17h373c9 0 17-8 17-17V96c0-4-2-9-5-12zm-101 80H67V39h234v125z"></path><path d="M214 148h43c3 0 6-2 6-6V60c0-4-3-6-6-6h-43c-3 0-6 2-6 6v82c0 4 3 6 6 6z"></path></svg> Store';
+        insertAfter(getByDataHook('rec-btn'), store);
+        store.addEventListener("click", function() {
+            prefabMessage("/store")
+        });
+    }
+}
+
+function getByDataHook(dataHook) {
+    return body.querySelector('[data-hook="' + dataHook + '"]');
+}
+
+function insertAfter(e, n) {
+    e.parentNode.insertBefore(n, e.nextSibling);
+}
+
+function openHaxballURL(uri) {
+    const code = uri.replace(/^https?:\/\/(www\.)?haxball\.com\/play\?c=/, "");
+
+    if (code.length > 0) {
+        window.location.replace("https://www.haxball.com/play?c=" + code);
+    }
+}
+
+function prefabMessage(msg) {
+    const chatbox = body.querySelector('.chatbox-view');
+    const input = chatbox.querySelector('input');
+    input.focus();
+    input.value = msg;
+
+    input.dispatchEvent(new KeyboardEvent("keydown", {
+        key: "Enter",
+        bubbles: true,
+        cancelable: true,
+        keyCode: 13,
+        which: 13,
+    }));
+}
+
+if (typeof VIRTUAL_JOYSTICK !== 'undefined') {
+    const joystick = document.createElement("div");
+    const joystickPanel = document.createElement("div");
+    const kickPanel = document.createElement("div");
+    const stick = document.createElement("div");
+
+    joystick.setAttribute("id", "joystick");
+    joystickPanel.setAttribute("id", "joystick-panel");
+    kickPanel.setAttribute("id", "kick-panel");
+    stick.setAttribute("id", "stick");
+    joystick.style.visibility = 'hidden';
+
+    document.body.appendChild(kickPanel);
+    document.body.appendChild(joystickPanel);
+    joystickPanel.appendChild(joystick)
+    joystick.appendChild(stick);
+
+    let joystickStylesheet = document.createElement("style");
+    joystickStylesheet.innerHTML = `:root {
+                                        --joystick-size: 40vh;
+                                        --joystick-opacity: 1
+                                    }
+
+                                    #joystick,
+                                    #stick {
+                                        touch-action: none;
+                                        background-color:#c2c2c255;
+                                        box-shadow:6px 6px 10px 0 #a5abb133,-5px -5px 9px 0 #a5abb133;
+                                        color:#dedede55;
+                                        font-weight:bolder;
+                                        font-size:1.5rem;
+                                        border-radius: 50%;
+                                    }
+
+                                    #joystick {
+                                        width: var(--joystick-size);
+                                        height: var(--joystick-size);
+                                        opacity: var(--joystick-opacity);
+                                        position: absolute;
+                                        left: 0;
+                                        bottom: 0;
+                                    }
+
+                                    #joystick-panel {
+                                        width: 35%;
+                                        height: 70%;
+                                        position: absolute;
+                                        left: 0;
+                                        bottom: 0;
+                                        display:none;
+                                    }
+
+                                    #kick-panel {
+                                        width: 35%;
+                                        height: 70%;
+                                        position: absolute;
+                                        right: 0;
+                                        bottom: 0;
+                                        display:none;
+                                    }
+
+                                    #stick {
+                                        width: calc(var(--joystick-size) * .45);
+                                        height: calc(var(--joystick-size) * .45);
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%)
+                                    }`;
+    document.head.appendChild(joystickStylesheet);
+
+    let isDragging = false;
+
+    let joystickAngle, joystickForce
+
+    const frequency = 40;
+    let dutyCicle = { "W": 0, "A": 0, "S": 0, "D": 0 }
+
+    const period = 1 / frequency * 1000;
+
+    let activeTime = period * dutyCicle;
+    let inactiveTime = period - activeTime;
+
+    joystickPanel.addEventListener('mousedown', startDrag);
+    joystickPanel.addEventListener('touchstart', startDrag);
+
+    joystickPanel.addEventListener('mouseup', endDrag);
+    joystickPanel.addEventListener('touchend', endDrag);
+
+    joystickPanel.addEventListener('mousemove', moveStick);
+    joystickPanel.addEventListener('touchmove', moveStick);
+
+    kickPanel.addEventListener('mousedown', startKick);
+    kickPanel.addEventListener('touchstart', startKick);
+
+    kickPanel.addEventListener('mouseup', endKick);
+    kickPanel.addEventListener('touchend', endKick);
+
+    function startDrag(e) {
+        isDragging = true;
+        const joystickRect = joystick.getBoundingClientRect();
+
+        let x = e.touches[0].clientX - joystickRect.left;
+        let y = e.touches[0].clientY - joystickRect.top;
+
+        const centerX = joystick.offsetWidth / 2;
+        const centerY = joystick.offsetHeight / 2;
+
+        x -= centerX;
+        y -= centerY;
+
+        joystick.style.transform = `translate(${x}px,${y}px)`;
+        joystick.style.visibility = 'visible';
+        e.preventDefault();
+    }
+
+    function endDrag(e) {
+        isDragging = false;
+        joystick.style.transform = '';
+        joystick.style.visibility = 'hidden';
+        resetStick();
+    }
+
+    function moveStick(e) {
+        if (!isDragging) return;
+
+        const joystickRect = joystick.getBoundingClientRect();
+        const stickRect = stick.getBoundingClientRect();
+
+        let x = e.clientX - joystickRect.left;
+        let y = e.clientY - joystickRect.top;
+
+        if (e.type === 'touchmove') {
+            x = e.touches[0].clientX - joystickRect.left;
+            y = e.touches[0].clientY - joystickRect.top;
+        }
+
+        const centerX = joystick.offsetWidth / 2;
+        const centerY = joystick.offsetHeight / 2;
+
+        let distanceX = (x - centerX) / (joystick.offsetWidth / 2);
+        let distanceY = (y - centerY) / (joystick.offsetHeight / 2);
+
+        // Clipping between -1 and 1
+        distanceX = Math.min(1, Math.max(-1, distanceX));
+        distanceY = Math.min(1, Math.max(-1, distanceY));
+
+        let angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
+        let distance = Math.min(joystick.offsetWidth / 2, Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2)));
+
+        stick.style.transition = 'none';
+        stick.style.transform = `translate(${distance * Math.cos(angle * (Math.PI / 180))-centerX/2}px, ${distance * Math.sin(angle * (Math.PI / 180))-centerY/2}px)`;
+
+        dutyCicle["D"] = distanceX
+        dutyCicle["A"] = distanceX * -1
+        dutyCicle["S"] = distanceY
+        dutyCicle["W"] = distanceY * -1
+    }
+
+    function resetStick() {
+        stick.style.transition = 'transform 0.1s ease-out';
+        stick.style.transform = 'translate(-50%, -50%)';
+        joystickForce = 0
+        dutyCicle["W"] = 0
+        dutyCicle["A"] = 0
+        dutyCicle["S"] = 0
+        dutyCicle["D"] = 0
+    }
+
+    function joystickTick(key) {
+        activeTime = period * dutyCicle[key];
+        inactiveTime = period - activeTime;
+
+        if (dutyCicle[key] > 0.1) {
+            emulateKey("Key" + [key], true)
+        }
+
+        setTimeout(() => {
+            if (dutyCicle[key] < 0.85) {
+                emulateKey("Key" + [key], false)
+            }
+            setTimeout(function() { joystickTick(key) }, inactiveTime);
+        }, activeTime);
+    }
+
+    function emulateKey(key, type) {
+        if (type) {
+            gameFrame.document.dispatchEvent(new KeyboardEvent("keydown", { code: key }));
+        } else {
+            gameFrame.document.dispatchEvent(new KeyboardEvent("keyup", { code: key }));
+        }
+    }
+
+    // Inicia la emulación
+    joystickTick("W");
+    joystickTick("A");
+    joystickTick("S");
+    joystickTick("D");
+
+    function startKick(){
+        emulateKey("KeyX", true)
+    }
+
+    function endKick(){
+        emulateKey("KeyX", false)
+    }
+
+    function showControls(v) {
+        if (v) {
+            joystickPanel.style.display = "block";
+            kickPanel.style.display = "block";
+        } else {
+            joystickPanel.style.display = "none";
+            kickPanel.style.display = "none";
+        }
+    }
+}
