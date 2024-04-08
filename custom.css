@@ -12,6 +12,7 @@ body {
     background: #c13535 !important;
 }
 
+[data-hook="tvideo-lowlatency"],
 [data-hook="tvideo-teamcol"],
 [data-hook="tvideo-showindicators"],
 [data-hook="tvideo-showavatars"],
