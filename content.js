@@ -1,4 +1,4 @@
-onst gameFrame = document.querySelector('.gameframe').contentWindow;
+const gameFrame = document.querySelector('.gameframe').contentWindow;
 
 let stylesheet = document.createElement("style");
 gameFrame.document.head.appendChild(stylesheet);
