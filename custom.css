@@ -12,12 +12,12 @@ body {
     background: #c13535 !important;
 }
 
-[data-hook="tvideo-teamcol"],
+/*[data-hook="tvideo-teamcol"],
 [data-hook="tvideo-showindicators"],
 [data-hook="tvideo-showavatars"],
 div:has(>[data-hook="chatopacity-range"]),
 div:has(>[data-hook="chatfocusheight-range"]),
-div:has(>[data-hook="chatbgmode"]),
+div:has(>[data-hook="chatbgmode"]),*/
 .roomlist-view>.dialog>.splitter>.buttons>.file-btn,
 [data-hook="rec-btn"],
 .sound-button-container,
