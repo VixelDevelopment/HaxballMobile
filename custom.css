@@ -12,7 +12,6 @@ body {
     background: #c13535 !important;
 }
 
-[data-hook="tvideo-lowlatency"],
 [data-hook="tvideo-teamcol"],
 [data-hook="tvideo-showindicators"],
 [data-hook="tvideo-showavatars"],
@@ -41,7 +40,7 @@ div.chatbox-view>div>div.input>input {
 }
 
 h1 {
-    border-bottom-color: #fec45b !important;
+    border-bottom-color: #EEA243 !important;
 }
 
 .game-view>.top-section {
@@ -214,6 +213,10 @@ div.chatbox-view>div>div.log.subtle-thin-scrollbar>div>p{
     align-items: center;
     top: 30px;
     width: 100vw;
+}
+
+.showing-room-view > .bottom-section > .stats-view-container > .stats-view{
+    display: none;
 }
 
 .showing-room-view > .bottom-section > .chatbox-view > div{
