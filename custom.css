@@ -269,3 +269,9 @@ div.chatbox-view>div>div.log.subtle-thin-scrollbar>div>p{
     position: relative;
 
 }
+
+.game-state-view canvas{
+    width: 100vw;
+    height: 100vh;
+    image-rendering: auto !important;
+}
