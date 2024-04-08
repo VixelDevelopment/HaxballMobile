@@ -36,10 +36,6 @@ div.chatbox-view>div>div.input>input {
     overflow: hidden;
 }
 
-.game-view>[data-hook=popups] {
-    background-color: #1a212585 !important;
-}
-
 h1 {
     border-bottom-color: #fec45b !important;
 }
