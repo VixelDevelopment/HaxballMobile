@@ -1,4 +1,4 @@
-const gameFrame = document.querySelector('.gameframe').contentWindow;
+onst gameFrame = document.querySelector('.gameframe').contentWindow;
 
 let stylesheet = document.createElement("style");
 gameFrame.document.head.appendChild(stylesheet);
@@ -64,6 +64,19 @@ function onDOMChange(mutationsList, observer) {
             showControls(true)
             handleFPSText()
         }
+    }
+}
+
+function createResetSettingsButton(){
+    const miscSection = getByDataHook('miscsec');
+    if(!getByDataHook('reset-all-btn')){
+        let button = document.createElement("button");
+        button.setAttribute("data-hook", "reset-all-btn");
+        button.innerHTML = "Reset all"
+        miscSection.appendChild(document.createElement("br"))
+        miscSection.appendChild(button)
+        miscSection.innerHTML += "<p style='font-size: small;font-style: italic;opacity: 0.5;'>You'll see changes next <br>time you open the app."
+        getByDataHook('reset-all-btn').addEventListener('click',function(){localStorage.clear()})
     }
 }
 
